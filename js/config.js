@@ -42,7 +42,7 @@ const PORTFOLIO_DATA = {
     { name: "WhatsApp", url: "https://wa.me/6282127202462", icon: "fab fa-whatsapp", color: "#25d366" },
     { name: "Dribbble", url: "https://dribbble.com/andre-maulana-j", icon: "fab fa-dribbble", color: "#ea4c89" },
     { name: "LinkedIn", url: "https://www.linkedin.com/in/andre-maulana-jayudin-7726702b4", icon: "fab fa-linkedin-in", color: "#0a66c2" },
-    { name: "GitHub", url: "https://github.com", icon: "fab fa-github", color: "#ffffff" },
+    { name: "GitHub", url: "https://github.com/MJndre", icon: "fab fa-github", color: "#ffffff" },
     { name: "Instagram", url: "https://instagram.com", icon: "fab fa-instagram", color: "#e1306c" }
   ],
 
