@@ -1,0 +1,14 @@
+# Dependencies & OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# Editor & IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Local Web Server / Laragon
+.htaccess

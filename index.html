@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="id" data-mode="design">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andre Maulana Jayudin — UI/UX Designer, Graphic Artist & Creative Coder</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portofolio resmi Andre Maulana Jayudin — Mahasiswa S1 Teknik Informatika UMC (Semester 5) aktif berorganisasi dengan paduan keahlian UI/UX Designer, Graphic Design, Video Editing, dan Pemrograman Web.">
+  <meta name="keywords" content="Andre Maulana Jayudin, UI/UX Designer, Graphic Designer, Video Editor, Web Developer, Teknik Informatika UMC, Universitas Muhammadiyah Cirebon, Trusmi Group, Himasantika">
+  <meta name="author" content="Andre Maulana Jayudin">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Inter (Clean, Modern, Professional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="mode-design">
+
+  <!-- Custom Playful Cursor -->
+  <div class="custom-cursor" id="customCursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring">
+      <span class="cursor-badge" id="cursorBadge">🎨 0, 0</span>
+    </div>
+  </div>
+
+  <!-- Noise Overlay for Visual Texture -->
+  <div class="bg-noise"></div>
+
+  <!-- Floating Ambient Glows -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- HEADER / NAVIGATION -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+      <!-- Logo Brand -->
+      <a href="#" class="brand-logo" id="brandLogo">
+        <div class="brand-avatar-mini">
+          <img src="assets/images/avatar.jpg" alt="Andre Avatar" class="mini-avatar-img">
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Andre<span class="brand-dot">.</span></span>
+          <span class="brand-role" id="brandRoleLabel">UI/UX & Code</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a href="#projects" class="nav-link"><i class="fas fa-layer-group"></i> Karya</a></li>
+          <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Pengalaman</a></li>
+          <li><a href="#skills" class="nav-link"><i class="fas fa-wand-magic-sparkles"></i> Keahlian</a></li>
+          <li><a href="#playground" class="nav-link"><i class="fas fa-flask"></i> Sandbox</a></li>
+          <li><a href="#about" class="nav-link"><i class="fas fa-user-astronaut"></i> Tentang</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mode Switcher & CTA -->
+      <div class="header-actions">
+        <!-- STANDOUT FEATURE: Dual View Switcher -->
+        <div class="mode-toggle-wrapper" title="Ganti Mode Pandangan: Desain vs Koding">
+          <button class="mode-toggle-btn active" id="btnModeDesign" data-set-mode="design">
+            <span class="toggle-icon">🎨</span>
+            <span class="toggle-text">Design View</span>
+          </button>
+          <button class="mode-toggle-btn" id="btnModeCode" data-set-mode="code">
+            <span class="toggle-icon">💻</span>
+            <span class="toggle-text">Code View</span>
+          </button>
+        </div>
+
+        <!-- Quick Social Shortcuts -->
+        <div class="header-social-shortcuts">
+          <a href="https://dribbble.com/andre-maulana-j" target="_blank" rel="noopener noreferrer" class="header-social-btn dribbble" title="Dribbble Portfolio">
+            <i class="fab fa-dribbble"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/andre-maulana-jayudin-7726702b4" target="_blank" rel="noopener noreferrer" class="header-social-btn linkedin" title="LinkedIn Profile">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+
+        <a href="#contact" class="btn btn-primary btn-sm btn-magnetic" id="headerContactBtn">
+          <span>Ajak Kolaborasi</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        
+        <!-- Left Hero Content -->
+        <div class="hero-content">
+          <!-- Status Pill -->
+          <div class="status-badge" id="heroStatusBadge">
+            <span class="status-indicator"></span>
+            <span class="status-text" id="statusText">Tersedia untuk Freelance &amp; Magang</span>
+            <span class="status-location"><i class="fas fa-map-pin"></i> Cirebon, ID • UMC Semester 5</span>
+          </div>
+
+          <!-- Dynamic Headline -->
+          <h1 class="hero-title" id="heroTitle">
+            <span class="title-sub" id="heroSubGreeting">Hai! Aku Andre Maulana Jayudin 👋</span>
+            <span class="title-main">
+              Menghubungkan <span class="highlight-text highlight-design" id="highlightWord1">Desain Visual</span> &amp; <span class="highlight-text highlight-code" id="highlightWord2">Koding Interaktif</span>
+            </span>
+          </h1>
+
+          <!-- Dynamic Tagline -->
+          <p class="hero-tagline" id="heroTagline">
+            Mahasiswa <strong>S1 Teknik Informatika (Semester 5) di Universitas Muhammadiyah Cirebon</strong> sekaligus <strong>UI/UX Designer, Graphic Designer &amp; Video Editor</strong> yang aktif berorganisasi serta menguasai <strong>pemrograman web &amp; software</strong>. Mampu menjembatani estetika visual kreatif dengan implementasi kode yang fungsional dan disiplin.
+          </p>
+
+          <!-- Interactive Badge Tags -->
+          <div class="hero-tags" id="heroTags">
+            <span class="hero-pill pill-design"><i class="fab fa-figma"></i> UI/UX &amp; Figma</span>
+            <span class="hero-pill pill-design"><i class="fas fa-palette"></i> Graphic Design</span>
+            <span class="hero-pill pill-design"><i class="fas fa-video"></i> Video Editing (Filmora)</span>
+            <span class="hero-pill pill-code"><i class="fab fa-js"></i> JavaScript &amp; React</span>
+            <span class="hero-pill pill-code"><i class="fab fa-python"></i> Python &amp; MySQL</span>
+            <span class="hero-pill pill-code"><i class="fab fa-git-alt"></i> Git &amp; GitHub</span>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary btn-lg btn-magnetic">
+              <i class="fas fa-sparkles"></i>
+              <span>Jelajahi Karya</span>
+            </a>
+            <a href="#experience" class="btn btn-secondary btn-lg btn-magnetic">
+              <i class="fas fa-briefcase"></i>
+              <span>Pengalaman &amp; CV</span>
+            </a>
+            <button class="btn btn-ghost btn-lg" id="btnDownloadCV" type="button">
+              <i class="fas fa-file-invoice"></i>
+              <span>Lihat CV Lengkap</span>
+            </button>
+          </div>
+
+          <!-- Prominent Social Showcase: Dribbble & LinkedIn -->
+          <div class="hero-social-showcase">
+            <a href="https://dribbble.com/andre-maulana-j" target="_blank" rel="noopener noreferrer" class="social-pill-card dribbble-pill" title="Lihat Portofolio Dribbble Andre">
+              <div class="pill-brand-icon"><i class="fab fa-dribbble"></i></div>
+              <div class="pill-brand-text">
+                <span class="pill-brand-title">Dribbble Portfolio</span>
+                <span class="pill-brand-handle">dribbble.com/andre-maulana-j</span>
+              </div>
+              <span class="pill-badge-tag">Design Shots <i class="fas fa-arrow-up-right-from-square"></i></span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/andre-maulana-jayudin-7726702b4" target="_blank" rel="noopener noreferrer" class="social-pill-card linkedin-pill" title="Kunjungi Profil LinkedIn Andre">
+              <div class="pill-brand-icon"><i class="fab fa-linkedin-in"></i></div>
+              <div class="pill-brand-text">
+                <span class="pill-brand-title">LinkedIn Profile</span>
+                <span class="pill-brand-handle">andre-maulana-jayudin</span>
+              </div>
+              <span class="pill-badge-tag">Connect <i class="fas fa-arrow-up-right-from-square"></i></span>
+            </a>
+          </div>
+
+          <!-- Stats Strip -->
+          <div class="hero-stats" id="heroStats">
+            <div class="stat-card">
+              <span class="stat-num">5th</span>
+              <span class="stat-lbl" data-design-lbl="Semester TI UMC" data-code-lbl="Mahasiswa Semester 5">Semester TI UMC</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">2</span>
+              <span class="stat-lbl" data-design-lbl="Proyek Unggulan" data-code-lbl="Featured Projects">Proyek Unggulan</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">100%</span>
+              <span class="stat-lbl" data-design-lbl="Pixel Perfect UI" data-code-lbl="Clean Code &amp; Logic">Pixel Perfect UI</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">∞</span>
+              <span class="stat-lbl" data-design-lbl="Ide Kreatif" data-code-lbl="git push origin main">Ide Kreatif</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual / Interactive Card -->
+        <div class="hero-visual">
+          <div class="hero-card-canvas" id="heroCardCanvas">
+            
+            <!-- Draggable Playful Floating Stickers -->
+            <div class="sticker sticker-1 draggable" title="Tarik aku kemana saja!">
+              <span>🎨 Design First</span>
+            </div>
+            <div class="sticker sticker-2 draggable" title="Tarik aku kemana saja!">
+              <span>&lt;Code /&gt;</span>
+            </div>
+            <div class="sticker sticker-3 draggable" title="Tarik aku kemana saja!">
+              <span>✨ Pixel Perfect</span>
+            </div>
+            <div class="sticker sticker-4 draggable" title="Tarik aku kemana saja!">
+              <span>🎬 Filmora Video</span>
+            </div>
+
+            <!-- Avatar Frame with Interactive Halo -->
+            <div class="avatar-frame">
+              <img src="assets/images/avatar.jpg" alt="Foto Profil Andre Maulana Jayudin" class="avatar-main-img" id="avatarImg">
+              <div class="avatar-glow"></div>
+            </div>
+
+            <!-- Dynamic Card Inspector Overlay -->
+            <div class="card-inspector-pill" id="cardInspectorPill">
+              <div class="pill-dot"></div>
+              <span class="pill-text" id="inspectorText">Inspector: UI/UX Canvas Active</span>
+            </div>
+
+            <!-- Code Overlay Snippet (Shows in Code Mode) -->
+            <div class="code-terminal-card" id="codeTerminalCard">
+              <div class="terminal-header">
+                <span class="terminal-btn red"></span>
+                <span class="terminal-btn yellow"></span>
+                <span class="terminal-btn green"></span>
+                <span class="terminal-file">AndreProfile.ts</span>
+              </div>
+              <pre class="terminal-code"><code><span class="kwd">const</span> <span class="var">andre</span>: <span class="type">CreativeCoder</span> = {
+  <span class="prop">name</span>: <span class="str">'Andre Maulana Jayudin'</span>,
+  <span class="prop">campus</span>: <span class="str">'Univ. Muhammadiyah Cirebon'</span>,
+  <span class="prop">major</span>: <span class="str">'S1 Teknik Informatika (Sem 5)'</span>,
+  <span class="prop">skills</span>: [<span class="str">'UI/UX'</span>, <span class="str">'Graphic Design'</span>, <span class="str">'Video'</span>, <span class="str">'JS/Python'</span>],
+  <span class="prop">experience</span>: <span class="str">'Trusmi Group & Himasantika'</span>,
+  <span class="prop">status</span>: <span class="str">'🚀 Ready for projects & internship!'</span>
+};</code></pre>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DUAL MODE PROMO BAR -->
+    <section class="mode-banner-section">
+      <div class="container">
+        <div class="mode-banner" id="modeBanner">
+          <div class="mode-banner-info">
+            <span class="banner-badge" id="bannerBadge">FITUR UNIK WEBSITE INI</span>
+            <h3 class="banner-title" id="bannerTitle">Dua Sudut Pandang, Satu Portofolio</h3>
+            <p class="banner-desc" id="bannerDesc">
+              Gunakan tombol di atas atau klik switch di samping untuk melihat portofolio ini dari kacamata <strong>Desain UI/UX &amp; Grafis</strong> atau dari kacamata <strong>Koding Frontend &amp; Arsitektur Web</strong>!
+            </p>
+          </div>
+          <div class="mode-banner-action">
+            <button class="btn btn-outline" id="bannerToggleTrigger">
+              <span class="banner-toggle-icon">🔄</span>
+              <span id="bannerToggleLabel">Ganti ke Code View</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SHOWCASE SECTION -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-badge-wrapper">
+            <span class="section-badge" id="projectsBadge">✨ KARYA TERPILIH</span>
+          </div>
+          <h2 class="section-title">
+            Portofolio <span class="highlight-text" id="projectsTitleHighlight">Kreatif &amp; Desain</span>
+          </h2>
+          <p class="section-desc" id="projectsDesc">
+            Eksplorasi proyek desain UI/UX, identitas visual branding, serta implementasi koding web interaktif.
+          </p>
+
+          <!-- Category Filters -->
+          <div class="filter-bar" id="projectFilters">
+            <button class="filter-btn active" data-filter="all"><i class="fas fa-grid-2"></i> Semua</button>
+            <button class="filter-btn" data-filter="uiux"><i class="fas fa-mobile-screen"></i> UI/UX Design</button>
+            <button class="filter-btn" data-filter="web"><i class="fas fa-map-location-dot"></i> Web &amp; WebGIS</button>
+          </div>
+        </div>
+
+        <!-- Projects Grid Container (Populated dynamically from config.js) -->
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Rendered by JavaScript -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EXPERIENCE & EDUCATION SECTION (SYNCED WITH OFFICIAL CV) -->
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-badge-wrapper">
+            <span class="section-badge"><i class="fas fa-briefcase"></i> REKAM JEJAK &amp; CV</span>
+          </div>
+          <h2 class="section-title">
+            Pengalaman Kerja, <span class="highlight-text">Organisasi &amp; Edukasi</span>
+          </h2>
+          <p class="section-desc">
+            Perjalanan nyata memadukan kepemimpinan organisasi, perancangan produk industri di Trusmi Group, dan dasar keilmuan Teknik Informatika UMC.
+          </p>
+
+          <!-- Experience Category Switcher Tabs -->
+          <div class="exp-tabs-nav" id="expTabsNav">
+            <button class="exp-tab-btn active" data-exp-tab="work">
+              <i class="fas fa-building-user"></i>
+              <span>Pengalaman Kerja (PKL / Magang)</span>
+            </button>
+            <button class="exp-tab-btn" data-exp-tab="org">
+              <i class="fas fa-users-gear"></i>
+              <span>Pengalaman Organisasi</span>
+            </button>
+            <button class="exp-tab-btn" data-exp-tab="edu">
+              <i class="fas fa-graduation-cap"></i>
+              <span>Riwayat Pendidikan</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Experience Dynamic Grid Container -->
+        <div class="exp-content-grid" id="expContentGrid">
+          <!-- Rendered dynamically by JavaScript based on active tab -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STANDOUT FEATURE: INTERACTIVE DESIGN & CODE SANDBOX PLAYGROUND -->
+    <section class="section playground-section" id="playground">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-badge-wrapper">
+            <span class="section-badge"><i class="fas fa-vial"></i> LAB EKSPERIMEN</span>
+          </div>
+          <h2 class="section-title">
+            Design &amp; Code <span class="highlight-text">Live Sandbox</span>
+          </h2>
+          <p class="section-desc">
+            Coba utak-atik kontrol di bawah secara langsung! Bukti nyata kemampuan menyatukan estetika desain (visual tweak) dengan logika koding frontend (live CSS injection).
+          </p>
+        </div>
+
+        <div class="sandbox-wrapper">
+          <!-- Sandbox Controls (Left Panel) -->
+          <div class="sandbox-controls">
+            <div class="sandbox-panel-header">
+              <div class="panel-title"><i class="fas fa-sliders"></i> Design Controls</div>
+              <button class="btn-text-sm" id="btnResetSandbox"><i class="fas fa-rotate-left"></i> Reset</button>
+            </div>
+
+            <!-- Control 1: Theme Color -->
+            <div class="control-group">
+              <label for="sbColor">Aksen Warna (Color Token):</label>
+              <div class="color-palette-picker" id="sbColorPickers">
+                <button class="color-dot active" data-color="#6366f1" style="background:#6366f1" title="Electric Indigo"></button>
+                <button class="color-dot" data-color="#a3e635" style="background:#a3e635" title="Neon Lime"></button>
+                <button class="color-dot" data-color="#f43f5e" style="background:#f43f5e" title="Playful Coral"></button>
+                <button class="color-dot" data-color="#06b6d4" style="background:#06b6d4" title="Cyber Cyan"></button>
+                <button class="color-dot" data-color="#f59e0b" style="background:#f59e0b" title="Sunset Amber"></button>
+              </div>
+            </div>
+
+            <!-- Control 2: Border Radius -->
+            <div class="control-group">
+              <div class="control-label-row">
+                <label for="sbRadius">Border Radius (Corner):</label>
+                <span class="control-val" id="valRadius">24px</span>
+              </div>
+              <input type="range" id="sbRadius" min="0" max="48" value="24" class="slider-input">
+            </div>
+
+            <!-- Control 3: Border Width -->
+            <div class="control-group">
+              <div class="control-label-row">
+                <label for="sbBorder">Border Stroke (px):</label>
+                <span class="control-val" id="valBorder">3px</span>
+              </div>
+              <input type="range" id="sbBorder" min="1" max="8" value="3" class="slider-input">
+            </div>
+
+            <!-- Control 4: Rotation Angle -->
+            <div class="control-group">
+              <div class="control-label-row">
+                <label for="sbRotate">Card Tilt (deg):</label>
+                <span class="control-val" id="valRotate">-2deg</span>
+              </div>
+              <input type="range" id="sbRotate" min="-15" max="15" value="-2" class="slider-input">
+            </div>
+
+            <!-- Control 5: Shadow Offset (Neo-Brutalist) -->
+            <div class="control-group">
+              <div class="control-label-row">
+                <label for="sbShadow">Pop Shadow Offset:</label>
+                <span class="control-val" id="valShadow">8px</span>
+              </div>
+              <input type="range" id="sbShadow" min="0" max="20" value="8" class="slider-input">
+            </div>
+
+            <!-- Control 6: Custom Text -->
+            <div class="control-group">
+              <label for="sbCardText">Kustomisasi Teks Kartu:</label>
+              <input type="text" id="sbCardText" value="Design that Works, Code that Plays." class="text-input">
+            </div>
+
+          </div>
+
+          <!-- Sandbox Live Preview (Center/Right Panel) -->
+          <div class="sandbox-preview-area">
+            <div class="sandbox-stage">
+              <!-- The dynamically styled card -->
+              <div class="sandbox-card" id="sandboxCard">
+                <div class="card-badge-pill" id="sbCardPill">
+                  <span>✨ UI Element</span>
+                </div>
+                <div class="card-icon-art" id="sbCardIcon">
+                  <i class="fas fa-wand-magic-sparkles"></i>
+                </div>
+                <h4 class="card-demo-title" id="sbDisplayTitle">Design that Works, Code that Plays.</h4>
+                <p class="card-demo-desc">
+                  Elemen ini dirender dinamis via CSS Custom Variables secara real-time.
+                </p>
+                <div class="card-demo-footer">
+                  <span class="footer-tag">Interactive</span>
+                  <button class="demo-click-btn" onclick="triggerCardWiggle()">Klik Aku! ⚡</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Real-time Generated CSS & React Snippet -->
+            <div class="sandbox-code-output">
+              <div class="code-output-header">
+                <div class="header-tab active" data-tab="css"><i class="fab fa-css3-alt"></i> Generated CSS</div>
+                <button class="btn-copy-code" id="btnCopySandboxCode" title="Salin Kode">
+                  <i class="fas fa-copy"></i>
+                  <span>Salin CSS</span>
+                </button>
+              </div>
+              <pre class="code-output-pre"><code id="sandboxGeneratedCode">/* Live CSS Output */</code></pre>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS & CREATIVE STACK BENTO GRID -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-badge-wrapper">
+            <span class="section-badge">🛠️ KEAHLIAN &amp; TOOLS</span>
+          </div>
+          <h2 class="section-title">
+            The Hybrid <span class="highlight-text">Skill Matrix</span>
+          </h2>
+          <p class="section-desc">
+            Menggabungkan kepekaan visual tingkat tinggi dengan keterampilan teknis coding modern.
+          </p>
+        </div>
+
+        <div class="bento-skills-grid">
+          
+          <!-- Bento 1: UI/UX Design -->
+          <div class="bento-card bento-uiux">
+            <div class="bento-icon-wrapper">
+              <i class="fas fa-pen-nib"></i>
+            </div>
+            <span class="bento-badge">Hard Skills 01</span>
+            <h3 class="bento-title">UI/UX Design</h3>
+            <p class="bento-desc">
+              Merancang antarmuka aplikasi intuitif dan efisien berbasis Design Thinking, wireframe terstruktur, serta prototype interaktif.
+            </p>
+            <ul class="skill-pill-list">
+              <li><i class="fab fa-figma"></i> Figma</li>
+              <li><i class="fas fa-sitemap"></i> User Flow</li>
+              <li><i class="fas fa-mobile-screen"></i> Mobile UI</li>
+              <li><i class="fas fa-cubes"></i> Design Tokens</li>
+              <li><i class="fas fa-user-check"></i> Usability Test</li>
+            </ul>
+          </div>
+
+          <!-- Bento 2: Graphic Design & Video Editing -->
+          <div class="bento-card bento-graphic">
+            <div class="bento-icon-wrapper">
+              <i class="fas fa-film"></i>
+            </div>
+            <span class="bento-badge">Hard Skills 02</span>
+            <h3 class="bento-title">Graphic Design &amp; Video Editing</h3>
+            <p class="bento-desc">
+              Produksi visual kreatif untuk branding organisasi: identitas visual, poster, banner, sertifikat, serta video editing konten rutin mingguan.
+            </p>
+            <ul class="skill-pill-list">
+              <li><i class="fas fa-video"></i> Filmora</li>
+              <li><i class="fas fa-paintbrush"></i> Canva</li>
+              <li><i class="fas fa-bezier-curve"></i> Illustrator</li>
+              <li><i class="fas fa-image"></i> Photoshop</li>
+              <li><i class="fas fa-newspaper"></i> Mading Biner</li>
+            </ul>
+          </div>
+
+          <!-- Bento 3: Programming & Frameworks -->
+          <div class="bento-card bento-code">
+            <div class="bento-icon-wrapper">
+              <i class="fas fa-code"></i>
+            </div>
+            <span class="bento-badge">Hard Skills 03</span>
+            <h3 class="bento-title">Pemrograman Web &amp; Software</h3>
+            <p class="bento-desc">
+              Membangun aplikasi responsif, sistem administrasi, dan logika pemrosesan data dengan arsitektur bersih serta performa optimal.
+            </p>
+            <ul class="skill-pill-list">
+              <li><i class="fab fa-html5"></i> HTML5 &amp; CSS3</li>
+              <li><i class="fab fa-js"></i> JavaScript</li>
+              <li><i class="fab fa-php"></i> PHP &amp; Laravel</li>
+              <li><i class="fab fa-python"></i> Python</li>
+              <li><i class="fab fa-react"></i> React &amp; Tailwind</li>
+            </ul>
+          </div>
+
+          <!-- Bento 4: Database & Developer Tools -->
+          <div class="bento-card bento-tools">
+            <div class="bento-icon-wrapper">
+              <i class="fas fa-database"></i>
+            </div>
+            <span class="bento-badge">Hard Skills 04</span>
+            <h3 class="bento-title">Database &amp; Tools</h3>
+            <p class="bento-desc">
+              Pengelolaan basis data relasional, version control untuk kolaborasi tim, dan perkakas pengembangan perangkat lunak modern.
+            </p>
+            <ul class="skill-pill-list">
+              <li><i class="fas fa-database"></i> MySQL &amp; SQLite</li>
+              <li><i class="fas fa-table"></i> MySQL Workbench</li>
+              <li><i class="fab fa-git-alt"></i> Git &amp; GitHub</li>
+              <li><i class="fas fa-laptop-code"></i> VS Code</li>
+              <li><i class="fab fa-flutter"></i> Dasar Dart/Flutter</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Soft Skills Spotlight Banner -->
+        <div class="soft-skills-card">
+          <div class="soft-skills-header">
+            <span class="soft-badge"><i class="fas fa-handshake-angle"></i> SOFT SKILLS INTERPERSONAL</span>
+            <h3 class="soft-title">Karakter Kerja &amp; Kemampuan Kolaboratif</h3>
+            <p class="soft-sub">Etos kerja disiplin, komunikasi transparan, dan daya adaptasi tinggi terhadap tantangan baru.</p>
+          </div>
+          <div class="soft-skills-grid">
+            <div class="soft-item">
+              <div class="soft-item-icon"><i class="fas fa-business-time"></i></div>
+              <div class="soft-item-body">
+                <h4>Manajemen Waktu</h4>
+                <p>Mampu mengatur prioritas pekerjaan dan menyelesaikan tugas tepat waktu di bawah tenggat waktu ketat.</p>
+              </div>
+            </div>
+            <div class="soft-item">
+              <div class="soft-item-icon"><i class="fas fa-people-group"></i></div>
+              <div class="soft-item-body">
+                <h4>Kerja Sama Tim</h4>
+                <p>Mampu berkoordinasi sinergis dengan tim desainer, developer, maupun lintas departemen organisasi.</p>
+              </div>
+            </div>
+            <div class="soft-item">
+              <div class="soft-item-icon"><i class="fas fa-comments"></i></div>
+              <div class="soft-item-body">
+                <h4>Komunikasi</h4>
+                <p>Mampu menyampaikan informasi, ide kreatif, dan penjelasan teknis secara jelas, lugas, dan terstruktur.</p>
+              </div>
+            </div>
+            <div class="soft-item">
+              <div class="soft-item-icon"><i class="fas fa-brain"></i></div>
+              <div class="soft-item-body">
+                <h4>Problem Solving</h4>
+                <p>Mampu menganalisis masalah kompleks, mengidentifikasi akar kendala, dan merumuskan solusi efektif.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CREATIVE WORKFLOW SECTION -->
+    <section class="section process-section" id="process">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-badge-wrapper">
+            <span class="section-badge"><i class="fas fa-arrows-split-up-and-left"></i> METODOLOGI</span>
+          </div>
+          <h2 class="section-title">
+            Bagaimana Ide <span class="highlight-text">Dihidupkan</span>
+          </h2>
+          <p class="section-desc">
+            Alur kerja terstruktur yang menyatukan sisi desain estetik dengan eksekusi kode yang tangguh.
+          </p>
+        </div>
+
+        <div class="process-timeline" id="processTimeline">
+          <!-- Rendered dynamically based on active mode -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT ME & PHILOSOPHY -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        
+        <div class="about-bento-grid">
+          
+          <!-- Profile Story -->
+          <div class="about-card story-card">
+            <span class="card-mini-badge">Tentang Andre</span>
+            <h3 class="about-title">Mahasiswa Teknik Informatika yang Cinta Desain Grafis, UI/UX &amp; Video Editing</h3>
+            <p class="about-p">
+              Saat ini aku sedang menempuh studi <strong>S1 Teknik Informatika di Universitas Muhammadiyah Cirebon (Semester 5)</strong>. Di kampus dan organisasi, aku aktif memimpin divisi publikasi <strong>DOKOMINFO Himasantika</strong> serta berkontribusi di UKM Computer Education. Selain itu, aku juga memiliki pengalaman kerja industri nyata sebagai <strong>UI/UX Designer di Trusmi Group</strong> dalam merancang aplikasi absensi dan dashboard operasional.
+            </p>
+            <p class="about-p">
+              Keahlian utamaku memadukan secara harmonis antara <strong>UI/UX Design, Graphic Design, Video Editing (Filmora), dan Pemrograman Web/Software</strong> (HTML, CSS, JS, PHP, Python, MySQL). Bagiku, desain mendefinisikan rasa empati pengguna, dan koding mewujudkannya menjadi kenyataan yang responsif, terstruktur, serta berdisiplin tinggi.
+            </p>
+            <div class="signature-tag">
+              <span class="sig-emoji">✍️</span>
+              <span class="sig-text">Designed with heart, coded with precision.</span>
+            </div>
+          </div>
+
+          <!-- Live Jakarta Clock & Availability -->
+          <div class="about-card clock-card">
+            <div class="clock-icon"><i class="fas fa-clock"></i></div>
+            <span class="clock-label">Waktu Lokal (Cirebon / WIB)</span>
+            <div class="clock-display" id="liveClock">12:50:00 WIB</div>
+            <div class="status-indicator-box">
+              <span class="status-pulse"></span>
+              <span>Siap menerima proyek &amp; magang</span>
+            </div>
+          </div>
+
+          <!-- Creative Quote Card -->
+          <div class="about-card quote-card">
+            <div class="quote-mark">“</div>
+            <blockquote class="quote-text">
+              "Desain tanpa koding hanyalah gambar diam. Koding tanpa desain hanyalah mesin kaku. Menggabungkan keduanya menciptakan pengalaman yang memikat."
+            </blockquote>
+            <span class="quote-author">— Andre Maulana Jayudin</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT & COLLABORATION SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        
+        <div class="contact-card-box">
+          <div class="contact-header-content">
+            <span class="contact-badge">🚀 MARI MULAI</span>
+            <h2 class="contact-title">Punya Ide Seru? Mari Kita Wujudkan Bersama!</h2>
+            <p class="contact-subtitle">
+              Apakah kamu butuh perancangan UI/UX aplikasi baru, identitas brand grafis yang bold, video editing konten, atau website interaktif yang menonjol? Pintu diskusiku selalu terbuka.
+            </p>
+
+            <!-- Direct Contact Links -->
+            <div class="direct-contact-list">
+              <div class="direct-item">
+                <div class="item-icon item-icon-dribbble"><i class="fab fa-dribbble"></i></div>
+                <div class="item-detail">
+                  <span class="item-label">Dribbble Portfolio:</span>
+                  <a href="https://dribbble.com/andre-maulana-j" target="_blank" rel="noopener noreferrer" class="item-link">dribbble.com/andre-maulana-j</a>
+                </div>
+                <a href="https://dribbble.com/andre-maulana-j" target="_blank" rel="noopener noreferrer" class="btn-external-link" title="Kunjungi Dribbble">
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+
+              <div class="direct-item">
+                <div class="item-icon item-icon-linkedin"><i class="fab fa-linkedin-in"></i></div>
+                <div class="item-detail">
+                  <span class="item-label">LinkedIn Profile:</span>
+                  <a href="https://www.linkedin.com/in/andre-maulana-jayudin-7726702b4" target="_blank" rel="noopener noreferrer" class="item-link">linkedin.com/in/andre-maulana-jayudin</a>
+                </div>
+                <a href="https://www.linkedin.com/in/andre-maulana-jayudin-7726702b4" target="_blank" rel="noopener noreferrer" class="btn-external-link" title="Kunjungi LinkedIn">
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+
+              <div class="direct-item">
+                <div class="item-icon"><i class="fas fa-envelope"></i></div>
+                <div class="item-detail">
+                  <span class="item-label">Kirim Email Langsung:</span>
+                  <a href="mailto:andremaulanaj@gmail.com" class="item-link" id="contactEmailLink">andremaulanaj@gmail.com</a>
+                </div>
+                <button class="btn-copy-email" id="btnCopyEmail" title="Salin Email">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+
+              <div class="direct-item">
+                <div class="item-icon" style="color:#25d366;background:rgba(37,211,102,0.15);"><i class="fab fa-whatsapp"></i></div>
+                <div class="item-detail">
+                  <span class="item-label">WhatsApp Langsung:</span>
+                  <a href="https://wa.me/6282127202462?text=Halo%20Andre,%20saya%20melihat%20portofolio%20Anda%20dan%20ingin%20berdiskusi!" target="_blank" rel="noopener noreferrer" class="item-link">+62 821-2720-2462</a>
+                </div>
+                <a href="https://wa.me/6282127202462?text=Halo%20Andre,%20saya%20melihat%20portofolio%20Anda%20dan%20ingin%20berdiskusi!" target="_blank" rel="noopener noreferrer" class="btn-external-link" title="Chat WhatsApp">
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+
+              <div class="direct-item">
+                <div class="item-icon"><i class="fas fa-location-dot"></i></div>
+                <div class="item-detail">
+                  <span class="item-label">Domisili:</span>
+                  <span class="item-link" style="text-decoration:none;cursor:default;">Jl. Abdi Negara IV No. 216 B Korpri, Sumber, Cirebon</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links Bar -->
+            <div class="contact-social-bar" id="contactSocials">
+              <!-- Rendered from config.js -->
+            </div>
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="contact-form-wrapper">
+            <form class="interactive-form" id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="formName">Nama Lengkap *</label>
+                  <input type="text" id="formName" required placeholder="Contoh: Budi Santoso" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label for="formEmail">Alamat Email *</label>
+                  <input type="email" id="formEmail" required placeholder="budi@company.com" class="form-input">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Layanan yang Kamu Butuhkan:</label>
+                <div class="interest-tags">
+                  <label class="tag-label">
+                    <input type="checkbox" name="services" value="UI/UX Design" checked>
+                    <span>🎨 UI/UX Design</span>
+                  </label>
+                  <label class="tag-label">
+                    <input type="checkbox" name="services" value="Graphic & Branding">
+                    <span>✨ Graphic &amp; Branding</span>
+                  </label>
+                  <label class="tag-label">
+                    <input type="checkbox" name="services" value="Video Editing">
+                    <span>🎬 Video Editing</span>
+                  </label>
+                  <label class="tag-label">
+                    <input type="checkbox" name="services" value="Frontend & Web">
+                    <span>💻 Web Development</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="formMessage">Ceritakan tentang proyekmu *</label>
+                <textarea id="formMessage" rows="4" required placeholder="Halo Andre, kami sedang mengembangkan produk..." class="form-input"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-lg" id="btnSubmitForm">
+                <span>Kirim Pesan Sekarang</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- CASE STUDY DETAIL MODAL -->
+  <div class="modal-backdrop" id="caseStudyModal">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup Detail Proyek">
+        <i class="fas fa-xmark"></i>
+      </button>
+      <div class="modal-body" id="modalContent">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- DEDICATED CV PREVIEW MODAL (SYNCED WITH OFFICIAL CV) -->
+  <div class="modal-backdrop" id="cvModal">
+    <div class="modal-dialog cv-modal-dialog">
+      <button class="modal-close-btn" id="cvModalCloseBtn" aria-label="Tutup Preview CV">
+        <i class="fas fa-xmark"></i>
+      </button>
+      <div class="cv-preview-container" id="cvPrintArea">
+        
+        <!-- CV Header -->
+        <div class="cv-paper-header">
+          <div class="cv-avatar-box">
+            <img src="assets/images/avatar.jpg" alt="Andre Maulana Jayudin" class="cv-avatar-img">
+          </div>
+          <div class="cv-header-text">
+            <h1 class="cv-name">ANDRE MAULANA JAYUDIN</h1>
+            <p class="cv-contact-row">
+              <a href="https://wa.me/6282127202462" target="_blank" rel="noopener"><i class="fas fa-phone"></i> +62 82127202462</a>
+              <span class="cv-divider">|</span>
+              <a href="mailto:andremaulanaj@gmail.com"><i class="fas fa-envelope"></i> andremaulanaj@gmail.com</a>
+            </p>
+            <p class="cv-address">
+              <i class="fas fa-location-dot"></i> Jl. ABDI NEGARA IV NO. 216 B KORPRI RT.003/RW.007, Kelurahan Tukmudal, Kecamatan Sumber, Cirebon
+            </p>
+          </div>
+        </div>
+
+        <div class="cv-paper-body">
+          <!-- Profil Ringkas -->
+          <div class="cv-section">
+            <h3 class="cv-sec-title"><i class="fas fa-user"></i> PROFIL</h3>
+            <p class="cv-text">
+              Mahasiswa S1 Teknik Informatika Universitas Muhammadiyah Cirebon yang aktif berorganisasi dengan keahlian paduan antara Pemrograman, Desain Grafis, dan Video Editing. Terbiasa bekerja dengan tenggat waktu ketat melalui rutinitas produksi konten mingguan dan manajemen publikasi organisasi. Memiliki kemampuan komunikasi yang baik, adaptabilitas tinggi terhadap teknologi baru, serta pemahaman teknis komputer yang mumpuni. Siap berkontribusi dalam tim yang dinamis dengan membawa etos kerja disiplin dan kreatif.
+            </p>
+          </div>
+
+          <!-- Pendidikan -->
+          <div class="cv-section">
+            <h3 class="cv-sec-title"><i class="fas fa-graduation-cap"></i> PENDIDIKAN</h3>
+            <div class="cv-entry">
+              <div class="cv-entry-head">
+                <strong>UNIVERSITAS MUHAMMADIYAH CIREBON</strong>
+                <span class="cv-entry-date">2023 - Sekarang</span>
+              </div>
+              <p class="cv-entry-sub">Program Studi S1 Teknik Informatika Semester 5</p>
+            </div>
+            <div class="cv-entry">
+              <div class="cv-entry-head">
+                <strong>SMA NEGERI 1 SUMBER</strong>
+                <span class="cv-entry-date">2020 - 2023</span>
+              </div>
+              <p class="cv-entry-sub">Jurusan Ilmu Pengetahuan Alam (IPA)</p>
+            </div>
+          </div>
+
+          <!-- Keterampilan -->
+          <div class="cv-section">
+            <h3 class="cv-sec-title"><i class="fas fa-wand-magic-sparkles"></i> KETERAMPILAN</h3>
+            <div class="cv-skills-block">
+              <div class="cv-skill-group">
+                <span class="cv-skill-label">Soft Skills:</span>
+                <ul class="cv-list">
+                  <li><strong>Manajemen Waktu:</strong> Mampu mengatur prioritas pekerjaan dan menyelesaikan tugas tepat waktu</li>
+                  <li><strong>Kerja Sama Tim:</strong> Mampu bekerja sama untuk mencapai tujuan bersama</li>
+                  <li><strong>Komunikasi:</strong> Mampu menyampaikan informasi dengan jelas</li>
+                  <li><strong>Problem Solving:</strong> Mampu menganalisis masalah dan menemukan solusi</li>
+                </ul>
+              </div>
+              <div class="cv-skill-group">
+                <span class="cv-skill-label">Hard Skills:</span>
+                <ul class="cv-list">
+                  <li><strong>Keahlian Utama:</strong> UI/UX Designer, Graphic Design, Video Editing</li>
+                  <li><strong>Pemrograman:</strong> HTML, CSS, JavaScript, PHP, dan Python</li>
+                  <li><strong>Framework &amp; Library:</strong> React JS, Tailwind CSS, Laravel</li>
+                  <li><strong>Database:</strong> MySQL, SQLite</li>
+                  <li><strong>Tools:</strong> Visual Studio Code, MySQL Workbench, Figma, Filmora, Canva</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pengalaman Kerja -->
+          <div class="cv-section">
+            <h3 class="cv-sec-title"><i class="fas fa-briefcase"></i> PENGALAMAN KERJA</h3>
+            <div class="cv-entry">
+              <div class="cv-entry-head">
+                <strong>Trusmi Group — PKL / Magang (UI/UX Designer)</strong>
+                <span class="cv-entry-date">November 2025 - Februari 2026</span>
+              </div>
+              <ul class="cv-list">
+                <li>Merancang tampilan dan alur penggunaan aplikasi internal perusahaan agar lebih intuitif dan efisien.</li>
+                <li>Mengembangkan desain UI/UX untuk aplikasi Absensi Internal dan Dashboard Internal.</li>
+                <li>Menyusun wireframe, mockup, serta prototype sebagai panduan proses pengembangan aplikasi.</li>
+                <li>Berkoordinasi dengan tim developer untuk memastikan desain dapat diimplementasikan sesuai kebutuhan.</li>
+                <li>Mengoptimalkan desain berdasarkan evaluasi, masukan pengguna, dan feedback tim.</li>
+                <li>Menerapkan metode Design Thinking untuk mengidentifikasi kebutuhan dan menyelesaikan permasalahan pengguna.</li>
+                <li>Menghasilkan ide desain yang mendukung peningkatan efisiensi kerja dan kebutuhan bisnis perusahaan.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Pengalaman Organisasi -->
+          <div class="cv-section">
+            <h3 class="cv-sec-title"><i class="fas fa-users-gear"></i> PENGALAMAN ORGANISASI</h3>
+            <div class="cv-entry">
+              <div class="cv-entry-head">
+                <strong>Ketua Departemen DOKOMINFO — Himpunan Mahasiswa Jurusan Teknik Informatika</strong>
+                <span class="cv-entry-date">September 2025 - Desember 2025</span>
+              </div>
+              <ul class="cv-list">
+                <li>Memimpin divisi DOKOMINFO dalam merancang dan mengeksekusi strategi branding visual serta publikasi informasi organisasi di media sosial.</li>
+                <li>Bertanggung jawab atas manajemen konten rutin mingguan, meliputi penerbitan "Mading Biner", konten edukasi teknologi, serta konten hiburan interaktif (meme) untuk menjaga engagement pengikut.</li>
+                <li>Mengoordinasikan layanan desain grafis dan dokumentasi untuk memfasilitasi kebutuhan publikasi program kerja departemen lain dalam himpunan.</li>
+                <li>Bertugas sebagai Penanggung Jawab Sie PDD dalam acara Dies Natalis Himasantika ke-13.</li>
+              </ul>
+            </div>
+
+            <div class="cv-entry">
+              <div class="cv-entry-head">
+                <strong>Staf Departemen DOKOMINFO — Himpunan Mahasiswa Jurusan Teknik Informatika</strong>
+                <span class="cv-entry-date">Februari 2024 - Agustus 2025</span>
+              </div>
+              <ul class="cv-list">
+                <li>Berkontribusi aktif dalam perencanaan dan eksekusi konten digital departemen, termasuk pembuatan "Mading Biner" dan konten edukatif mingguan.</li>
+                <li>Bertanggung jawab menyusun konten interaktif dan hiburan (meme/soft content) untuk meningkatkan engagement media sosial himpunan.</li>
+                <li>Membantu divisi lain dalam pembuatan aset visual (desain poster, banner, dan sertifikat) untuk berbagai program kerja himpunan.</li>
+                <li>Bertugas sebagai Staf PDD dalam kegiatan pada setiap acara di Himpunan Mahasiswa.</li>
+              </ul>
+            </div>
+
+            <div class="cv-entry">
+              <div class="cv-entry-head">
+                <strong>Staf Sub Divisi Proyek Teknologi — UKM Computer Education</strong>
+                <span class="cv-entry-date">6 Januari 2025 - Sekarang</span>
+              </div>
+              <ul class="cv-list">
+                <li>Berkontribusi dalam pembuatan aplikasi berbasis desktop dan web, termasuk perancangan alur sistem dan database.</li>
+                <li>Bertugas sebagai Penanggung Jawab Sie PDD dalam acara MAKRAB UKM COMPUTER EDUCATION.</li>
+              </ul>
+            </div>
+
+            <div class="cv-entry">
+              <div class="cv-entry-head">
+                <strong>Komunitas Mobile Development</strong>
+                <span class="cv-entry-date">2024 - Sekarang</span>
+              </div>
+              <ul class="cv-list">
+                <li>Berpartisipasi aktif dalam kegiatan dan proyek komunitas.</li>
+                <li>Mengikuti program pelatihan intensif yang mencakup dasar-dasar DART dan FLUTTER.</li>
+                <li>Mempelajari dan mengimplementasikan Git dan GitHub sebagai alat untuk kolaborasi tim, version control, dan deployment proyek mobile.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Pengalaman Proyek -->
+          <div class="cv-section">
+            <h3 class="cv-sec-title"><i class="fas fa-laptop-code"></i> PENGALAMAN PROYEK</h3>
+            <div class="cv-entry">
+              <div class="cv-entry-head">
+                <strong>Website WebGIS Pemetaan Potensi Desa Ciledug Lor – KKN UMC 2026</strong>
+              </div>
+              <ul class="cv-list">
+                <li>Mengembangkan website Sistem Informasi Geografis (WebGIS) untuk memetakan potensi desa serta menyajikan informasi lokasi potensi lokal Desa Ciledug Lor.</li>
+                <li>Merancang antarmuka website dan mengintegrasikan peta interaktif untuk memudahkan pengguna dalam mengakses informasi potensi desa.</li>
+              </ul>
+            </div>
+            <div class="cv-entry">
+              <div class="cv-entry-head">
+                <strong>Website Pemesanan Hotel</strong>
+              </div>
+              <ul class="cv-list">
+                <li>Mengembangkan website pemesanan hotel menggunakan HTML, CSS, dan JavaScript dengan tampilan yang informatif dan interaktif.</li>
+                <li>Menerapkan desain antarmuka responsif serta JavaScript untuk meningkatkan interaktivitas dan kenyamanan pengguna.</li>
+              </ul>
+            </div>
+            <div class="cv-entry">
+              <div class="cv-entry-head">
+                <strong>Aplikasi Manajemen Hotel</strong>
+              </div>
+              <ul class="cv-list">
+                <li>Membuat aplikasi manajemen hotel berbasis Python untuk membantu pengelolaan data dan mendukung proses administrasi hotel.</li>
+                <li>Mengimplementasikan fitur pengolahan data serta antarmuka aplikasi untuk mempermudah penggunaan sistem.</li>
+              </ul>
+            </div>
+            <div class="cv-entry">
+              <div class="cv-entry-head">
+                <strong>Aplikasi Konversi Mata Uang</strong>
+              </div>
+              <ul class="cv-list">
+                <li>Mengembangkan aplikasi konversi mata uang menggunakan Python untuk mempermudah perhitungan dan konversi nilai mata uang.</li>
+                <li>Mengimplementasikan logika pemrograman Python untuk memproses input pengguna dan menampilkan hasil konversi.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-paper-footer">
+          <button class="btn btn-primary" onclick="window.print()">
+            <i class="fas fa-print"></i> Cetak / Simpan PDF
+          </button>
+          <button class="btn btn-secondary" onclick="closeCVModal()">
+            Tutup Preview
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-notification" id="toastNotification">
+    <div class="toast-icon" id="toastIcon">📋</div>
+    <div class="toast-message" id="toastMessage">Email berhasil disalin ke clipboard!</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <span class="footer-brand">Andre Maulana Jayudin<span class="brand-dot">.</span></span>
+        <p class="footer-note">
+          Dibuat dengan Figma, cinta pada estetika visual, dan koding murni HTML, CSS &amp; JavaScript.
+        </p>
+      </div>
+      <div class="footer-right">
+        <a href="#hero" class="btn-back-to-top" id="btnBackToTop" title="Kembali ke Atas">
+          <i class="fas fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Canvas Confetti Library for playful celebrations -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <!-- Configuration & Main Logic Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
