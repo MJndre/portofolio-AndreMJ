@@ -2,7 +2,10 @@
 <html lang="id" data-mode="design">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#090d16">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Andre Maulana Jayudin — UI/UX Designer, Graphic Artist & Creative Coder</title>
   
   <!-- SEO Meta Tags -->
@@ -62,6 +65,33 @@
           <li><a href="#playground" class="nav-link"><i class="fas fa-flask"></i> Sandbox</a></li>
           <li><a href="#about" class="nav-link"><i class="fas fa-user-astronaut"></i> Tentang</a></li>
         </ul>
+
+        <!-- Mobile Drawer Bottom Actions -->
+        <div class="mobile-drawer-footer">
+          <div class="mobile-drawer-mode">
+            <span class="mobile-drawer-label">Mode Tampilan:</span>
+            <div class="mode-toggle-wrapper mobile-toggle-wrapper">
+              <button class="mode-toggle-btn active" data-set-mode="design">
+                <span class="toggle-icon">🎨</span>
+                <span class="toggle-text">Design View</span>
+              </button>
+              <button class="mode-toggle-btn" data-set-mode="code">
+                <span class="toggle-icon">💻</span>
+                <span class="toggle-text">Code View</span>
+              </button>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-primary btn-block mobile-drawer-cta">
+            <i class="fas fa-paper-plane"></i>
+            <span>Ajak Kolaborasi</span>
+          </a>
+          <div class="mobile-drawer-socials">
+            <a href="https://wa.me/6282127202462?text=Halo%20Andre,%20saya%20melihat%20portofolio%20Anda%20dan%20ingin%20berdiskusi!" target="_blank" rel="noopener noreferrer" class="social-drawer-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://dribbble.com/andre-maulana-j" target="_blank" rel="noopener noreferrer" class="social-drawer-btn dribbble" title="Dribbble"><i class="fab fa-dribbble"></i></a>
+            <a href="https://www.linkedin.com/in/andre-maulana-jayudin-7726702b4" target="_blank" rel="noopener noreferrer" class="social-drawer-btn linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/MJndre" target="_blank" rel="noopener noreferrer" class="social-drawer-btn github" title="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
       </nav>
 
       <!-- Mode Switcher & CTA -->
@@ -102,6 +132,9 @@
       </div>
     </div>
   </header>
+
+  <!-- Mobile Navigation Backdrop Overlay -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
 
   <main>
     <!-- HERO SECTION -->
@@ -1041,6 +1074,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating Back To Top Button for Mobile & Desktop -->
+  <a href="#hero" class="floating-back-to-top" id="floatingBackToTop" aria-label="Kembali ke atas" title="Kembali ke atas">
+    <i class="fas fa-arrow-up"></i>
+  </a>
 
   <!-- Canvas Confetti Library for playful celebrations -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>

@@ -83,10 +83,16 @@ html {
 
 body {
   position: relative;
+  width: 100%;
   min-height: 100vh;
   line-height: 1.6;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body.menu-locked {
+  overflow: hidden;
 }
 
 /* Background Texture Noise & Ambient Glows */
@@ -2162,231 +2168,82 @@ html[data-mode="code"] .view-code-panel {
 }
 
 /* ============================================================
-   RESPONSIVE DESIGN (MEDIA QUERIES)
+   MOBILE DRAWER, FLOATING ACTIONS & MODAL GRID BASE
    ============================================================ */
 
-@media (max-width: 1024px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .hero-visual {
-    order: -1;
-  }
-
-  .hero-card-canvas {
-    max-width: 380px;
-  }
-
-  .sandbox-wrapper {
-    grid-template-columns: 1fr;
-  }
-
-  .bento-skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .bento-uiux, .bento-graphic, .bento-code, .bento-tools {
-    grid-column: span 1;
-  }
-
-  .process-timeline {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .about-bento-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .story-card {
-    grid-row: auto;
-  }
-
-  .contact-card-box {
-    grid-template-columns: 1fr;
-    padding: 2rem;
-  }
+/* Mobile Navigation Backdrop */
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-smooth);
 }
 
-@media (max-width: 768px) {
-  .section {
-    padding: 3.5rem 0;
-  }
-
-  .section-header {
-    margin-bottom: 2.2rem;
-    gap: 0.6rem;
-  }
-
-  .hero-section {
-    padding: 3rem 0 2.5rem;
-  }
-
-  .main-nav {
-    display: none;
-  }
-
-  .main-nav.mobile-active {
-    display: flex;
-    position: fixed;
-    top: 68px;
-    left: 0;
-    width: 100%;
-    background: rgba(9, 13, 22, 0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 2px solid var(--border-bold);
-    padding: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-    z-index: 99;
-    animation: slideDownNav 0.25s ease-out forwards;
-  }
-
-  @keyframes slideDownNav {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .main-nav.mobile-active .nav-list {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    gap: 0.65rem;
-  }
-
-  .main-nav.mobile-active .nav-link {
-    padding: 11px 16px;
-    border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-subtle);
-    font-size: 0.95rem;
-    font-weight: 600;
-    justify-content: flex-start;
-  }
-
-  .mobile-menu-btn {
-    display: flex;
-    z-index: 101;
-  }
-
-  .mobile-menu-btn.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .mobile-menu-btn.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .mobile-menu-btn.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-
-  .hero-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-    padding: 1rem;
-  }
-
-  .mode-banner {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1.4rem;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .process-timeline {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .interest-tags {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.2rem;
-  }
-
-  .exp-card {
-    padding: 1.6rem 1.4rem;
-  }
-
-  .exp-card-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.6rem;
-  }
-
-  .soft-skills-card {
-    padding: 1.6rem 1.4rem;
-    margin-top: 2.2rem;
-  }
-
-  .modal-dialog {
-    padding: 1.5rem;
-  }
-
-  .cv-modal-dialog {
-    padding: 1.6rem 1.2rem;
-  }
-
-  .cv-paper-header {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .cv-contact-row {
-    justify-content: center;
-  }
+.mobile-nav-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-@media (max-width: 640px) {
-  .hero-cta-group {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    gap: 0.75rem;
-  }
+/* Mobile Drawer Bottom Actions (Desktop Default: Hidden) */
+.mobile-drawer-footer {
+  display: none;
+}
 
-  .hero-cta-group .btn {
-    width: 100%;
-    justify-content: center;
-  }
+/* Floating Back To Top Button */
+.floating-back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  color: var(--secondary);
+  border: 2px solid var(--secondary);
+  box-shadow: 3px 3px 0 var(--secondary), 0 8px 24px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  z-index: 990;
+  opacity: 0;
+  transform: translateY(20px) scale(0.85);
+  pointer-events: none;
+  transition: all var(--transition-bounce);
+}
 
-  .exp-tabs-nav {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    gap: 0.6rem;
-  }
+.floating-back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
 
-  .exp-tab-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 11px 16px;
-  }
+.floating-back-to-top:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: #000;
+  box-shadow: 4px 4px 0 #000;
+  transform: translateY(-3px) scale(1.05);
+}
 
-  .filter-bar {
-    gap: 0.5rem;
-  }
+/* Modal Case Study Project Responsive Grid */
+.modal-project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
 
-  .filter-btn {
-    padding: 8px 14px;
-    font-size: 0.82rem;
-  }
+.modal-project-col {
+  background: #090d16;
+  padding: 1.5rem;
+  border-radius: 14px;
+  border: 1px solid var(--border-bold);
 }
 
 /* ============================================================
@@ -2568,11 +2425,6 @@ html[data-mode="code"] .view-code-panel {
   transform: translateY(-2px);
 }
 
-@media (max-width: 640px) {
-  .hero-social-showcase {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* ============================================================
    EXPERIENCE & EDUCATION TIMELINE (SYNCED WITH CV)
@@ -2893,11 +2745,6 @@ html[data-mode="code"] .view-code-panel {
   line-height: 1.55;
 }
 
-@media (max-width: 768px) {
-  .soft-skills-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* ============================================================
    DEDICATED CV PREVIEW MODAL
@@ -3064,11 +2911,6 @@ html[data-mode="code"] .view-code-panel {
   gap: 1.2rem;
 }
 
-@media (max-width: 680px) {
-  .cv-skills-block {
-    grid-template-columns: 1fr;
-  }
-}
 
 .cv-skill-group {
   background: rgba(255, 255, 255, 0.02);
@@ -3122,6 +2964,747 @@ html[data-mode="code"] .view-code-panel {
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border-subtle);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS (MASTER MEDIA QUERIES)
+   ============================================================ */
+
+/* TABLETS & SMALL LAPTOPS (<= 1024px) */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2.8rem;
+  }
+
+  .hero-visual {
+    order: -1;
+  }
+
+  .hero-card-canvas {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .sandbox-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-uiux, .bento-graphic, .bento-code, .bento-tools {
+    grid-column: span 1;
+  }
+
+  .process-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-card {
+    grid-row: auto;
+  }
+
+  .contact-card-box {
+    grid-template-columns: 1fr;
+    padding: 2.5rem;
+  }
+
+  .modal-project-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
+
+/* TABLETS & LARGE PHONES (<= 768px) */
+@media (max-width: 768px) {
+  /* Global Layout */
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2.2rem;
+    gap: 0.6rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 5.5vw, 2.4rem);
+  }
+
+  /* Header & Navigation */
+  .site-header {
+    padding: 0.65rem 0;
+  }
+
+  .header-container {
+    gap: 0.75rem;
+  }
+
+  .header-actions {
+    gap: 0.6rem;
+  }
+
+  /* Hide header social icons and contact button on top bar to eliminate header crowding */
+  .header-social-shortcuts,
+  #headerContactBtn {
+    display: none !important;
+  }
+
+  /* Compact Mode Toggle on Mobile Top Bar */
+  .mode-toggle-wrapper {
+    padding: 3px;
+    gap: 2px;
+  }
+
+  .mode-toggle-btn {
+    padding: 6px 10px;
+    font-size: 0.95rem;
+    min-height: 36px;
+  }
+
+  .mode-toggle-btn .toggle-text {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Mobile Navigation Drawer */
+  .main-nav {
+    display: none;
+  }
+
+  .main-nav.mobile-active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: rgba(9, 13, 22, 0.98);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 2px solid var(--border-bold);
+    padding: 1.5rem 1.25rem 2rem;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    animation: slideDownNav 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideDownNav {
+    from {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .main-nav.mobile-active .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .main-nav.mobile-active .nav-link {
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    font-size: 0.95rem;
+    font-weight: 600;
+    justify-content: flex-start;
+    min-height: 46px;
+  }
+
+  .main-nav.mobile-active .nav-link:hover,
+  .main-nav.mobile-active .nav-link:active {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary);
+  }
+
+  /* Mobile Drawer Footer Actions */
+  .mobile-drawer-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .mobile-drawer-mode {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .mobile-drawer-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .mobile-toggle-wrapper {
+    display: flex;
+    width: 100%;
+    background: #000;
+    border: 1px solid var(--border-bold);
+    padding: 4px;
+    border-radius: var(--radius-full);
+  }
+
+  .mobile-toggle-wrapper .mode-toggle-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    min-height: 42px;
+  }
+
+  .mobile-toggle-wrapper .mode-toggle-btn .toggle-text {
+    display: inline !important;
+  }
+
+  .mobile-drawer-cta {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    font-size: 0.95rem;
+    min-height: 48px;
+  }
+
+  .mobile-drawer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .social-drawer-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #000;
+    border: 1px solid var(--border-bold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+  }
+
+  .social-drawer-btn.whatsapp:hover { color: #25d366; border-color: #25d366; }
+  .social-drawer-btn.dribbble:hover { color: #ea4c89; border-color: #ea4c89; }
+  .social-drawer-btn.linkedin:hover { color: #0a66c2; border-color: #0a66c2; }
+  .social-drawer-btn.github:hover { color: #fff; border-color: #fff; }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 2.2rem 0 2.5rem;
+  }
+
+  .title-main {
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+  }
+
+  .hero-tagline {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .status-badge {
+    font-size: 0.78rem;
+    padding: 6px 12px;
+    max-width: 100%;
+    flex-wrap: wrap;
+    line-height: 1.4;
+  }
+
+  .status-location {
+    margin-left: 0;
+    padding-left: 0.4rem;
+    border-left: none;
+    width: 100%;
+    display: block;
+    margin-top: 2px;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .stat-num {
+    font-size: 1.55rem;
+  }
+
+  .stat-lbl {
+    font-size: 0.78rem;
+  }
+
+  .hero-card-canvas {
+    max-width: 340px;
+  }
+
+  /* Mode Banner */
+  .mode-banner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem;
+    gap: 1.2rem;
+  }
+
+  .mode-banner-action .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Projects & Workflow */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .process-timeline {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .soft-skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Contact & Form */
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .interest-tags {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.2rem;
+  }
+
+  /* CV Modal Responsive Layout */
+  .cv-modal-dialog {
+    padding: 1.8rem 1.25rem;
+  }
+
+  .cv-paper-header {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .cv-contact-row {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cv-skills-block {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* SMARTPHONES (<= 640px) */
+@media (max-width: 640px) {
+  /* Scale Neo-Brutalism Shadows for Clean Mobile Alignment */
+  .hero-card-canvas {
+    box-shadow: 6px 6px 0px #000, 0 16px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  .project-card,
+  .exp-card,
+  .process-step-card,
+  .soft-skills-card,
+  .about-card,
+  .sandbox-wrapper,
+  .contact-card-box {
+    box-shadow: 4px 4px 0 #000;
+  }
+
+  .hero-card-canvas:hover,
+  .project-card:hover,
+  .exp-card:hover,
+  .about-card:hover {
+    transform: none; /* Avoid sticky hover state bugs on mobile touchscreens */
+  }
+
+  /* Hero Call To Action Buttons */
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    font-size: 0.95rem;
+  }
+
+  .hero-social-showcase {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Experience Section Tabs & Cards */
+  .exp-tabs-nav {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.6rem;
+  }
+
+  .exp-tab-btn,
+  .exp-tab-btn *,
+  .exp-tab-btn span {
+    white-space: normal !important;
+    text-align: center;
+  }
+
+  .exp-tab-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 16px;
+    min-height: 48px;
+    font-size: 0.88rem;
+  }
+
+  .exp-card {
+    padding: 1.4rem 1.15rem;
+  }
+
+  .exp-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .exp-period-pill {
+    align-self: flex-start;
+  }
+
+  .exp-role-title {
+    font-size: 1.25rem;
+  }
+
+  /* Category Filter Buttons */
+  .filter-bar {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 10px 16px;
+    font-size: 0.82rem;
+    min-height: 42px;
+  }
+
+  /* Interactive Sandbox */
+  .sandbox-wrapper {
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .sandbox-controls {
+    padding: 1.2rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .sandbox-stage {
+    padding: 1.25rem 0.5rem;
+    min-height: 230px;
+    border-radius: var(--radius-md);
+  }
+
+  .sandbox-card {
+    width: 100%;
+    max-width: 290px;
+    padding: 1.25rem 1rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .color-dot {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Bento Skills Grid */
+  .bento-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .soft-skills-card {
+    padding: 1.5rem 1.15rem;
+    margin-top: 2rem;
+  }
+
+  .about-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .contact-card-box {
+    padding: 1.5rem 1.15rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .direct-contact-list {
+    gap: 0.75rem;
+  }
+
+  .direct-item {
+    padding: 10px 12px;
+    gap: 0.75rem;
+  }
+
+  .item-link {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    font-size: 0.88rem;
+  }
+
+  .form-input {
+    min-height: 48px;
+    padding: 12px 14px;
+    font-size: 0.92rem;
+  }
+
+  .tag-label span {
+    min-height: 44px;
+    padding: 10px;
+    font-size: 0.82rem;
+  }
+
+  #btnSubmitForm {
+    min-height: 48px;
+    font-size: 0.95rem;
+  }
+
+  /* Modals Optimization */
+  .modal-backdrop {
+    padding: 0.75rem;
+  }
+
+  .modal-dialog {
+    padding: 1.5rem 1.15rem;
+    max-height: 92vh;
+    border-radius: var(--radius-lg);
+    box-shadow: 6px 6px 0 #000;
+  }
+
+  .cv-modal-dialog {
+    padding: 1.5rem 1.1rem;
+    max-height: 92vh;
+    border-radius: var(--radius-lg);
+    box-shadow: 6px 6px 0 #000;
+  }
+
+  .modal-close-btn {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 38px;
+    height: 38px;
+  }
+
+  .cv-avatar-box {
+    width: 76px;
+    height: 76px;
+  }
+
+  .cv-name {
+    font-size: 1.4rem;
+  }
+
+  .cv-contact-row {
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+  }
+
+  .cv-divider {
+    display: none;
+  }
+
+  .cv-paper-footer {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+  }
+
+  .cv-paper-footer .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+  }
+
+  /* Toast Notification */
+  .toast-notification {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1.25rem;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.82rem;
+    padding: 10px 14px;
+  }
+
+  /* Floating Back To Top */
+  .floating-back-to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+}
+
+/* COMPACT MOBILE PHONES (<= 420px) */
+@media (max-width: 420px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .brand-name {
+    font-size: 1.1rem;
+  }
+
+  .brand-avatar-mini {
+    width: 36px;
+    height: 36px;
+  }
+
+  .title-main {
+    font-size: 1.7rem;
+  }
+
+  .title-sub {
+    font-size: 0.92rem;
+  }
+
+  .hero-card-canvas {
+    max-width: 290px;
+    border-radius: var(--radius-lg);
+  }
+
+  .sticker {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+
+  .sticker-1 { top: 4%; left: 3%; }
+  .sticker-2 { top: 6%; right: 3%; }
+  .sticker-3 { bottom: 10%; left: 4%; }
+  .sticker-4 { bottom: 6%; right: 4%; }
+
+  .sandbox-card {
+    max-width: 260px;
+    padding: 1rem 0.85rem;
+  }
+
+  .stat-num {
+    font-size: 1.4rem;
+  }
+
+  .stat-lbl {
+    font-size: 0.72rem;
+  }
+
+  .cv-paper-header {
+    gap: 0.6rem;
+  }
+
+  .cv-name {
+    font-size: 1.25rem;
+  }
+}
+
+/* TINY / LEGACY SCREENS (<= 360px) */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .brand-role {
+    display: none;
+  }
+
+  .hero-card-canvas {
+    max-width: 260px;
+  }
+
+  .sandbox-card {
+    max-width: 235px;
+    padding: 0.9rem 0.75rem;
+  }
+
+  .hero-stats {
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  .stat-num {
+    font-size: 1.25rem;
+  }
 }
 
 /* Print Optimization for CV */

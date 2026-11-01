@@ -54,10 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const isCode = mode === 'code';
     playModeSound(isCode);
 
-    if (btnModeDesign && btnModeCode) {
-      btnModeDesign.classList.toggle('active', !isCode);
-      btnModeCode.classList.toggle('active', isCode);
-    }
+    document.querySelectorAll('[data-set-mode]').forEach(btn => {
+      const btnMode = btn.getAttribute('data-set-mode');
+      btn.classList.toggle('active', btnMode === mode);
+    });
 
     if (bannerToggleLabel) {
       bannerToggleLabel.textContent = isCode ? 'Ganti ke Design View 🎨' : 'Ganti ke Code View 💻';
@@ -85,8 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
     showToast(`Mode beralih ke: ${isCode ? 'Code View 💻' : 'Design View 🎨'}`);
   }
 
-  if (btnModeDesign) btnModeDesign.addEventListener('click', () => setMode('design'));
-  if (btnModeCode) btnModeCode.addEventListener('click', () => setMode('code'));
+  document.querySelectorAll('[data-set-mode]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetMode = btn.getAttribute('data-set-mode');
+      if (targetMode) setMode(targetMode);
+    });
+  });
+
   if (bannerToggleTrigger) {
     bannerToggleTrigger.addEventListener('click', () => {
       setMode(currentMode === 'design' ? 'code' : 'design');
@@ -192,8 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </p>
       </div>
 
-      <div class="modal-section-block" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem;">
-        <div style="background:#090d16;padding:1.5rem;border-radius:14px;border:1px solid var(--border-bold);">
+      <div class="modal-section-block modal-project-grid">
+        <div class="modal-project-col">
           <h4 style="color:var(--primary);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.5rem;">
             <i class="fas fa-palette"></i> Desain &amp; User Experience
           </h4>
@@ -206,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </ul>
         </div>
 
-        <div style="background:#090d16;padding:1.5rem;border-radius:14px;border:1px solid var(--border-bold);">
+        <div class="modal-project-col">
           <h4 style="color:var(--secondary);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.5rem;">
             <i class="fas fa-code"></i> Implementasi Frontend &amp; Arsitektur
           </h4>
@@ -407,38 +412,66 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ============================================================
-     6. DRAGGABLE PLAYFUL STICKERS
+     6. DRAGGABLE PLAYFUL STICKERS (MOUSE + TOUCH)
      ============================================================ */
   const stickers = document.querySelectorAll('.draggable');
   stickers.forEach(sticker => {
     let isDragging = false;
     let startX, startY, initialLeft, initialTop;
 
-    sticker.addEventListener('mousedown', (e) => {
+    const startDrag = (clientX, clientY) => {
       isDragging = true;
-      startX = e.clientX;
-      startY = e.clientY;
+      startX = clientX;
+      startY = clientY;
       const rect = sticker.getBoundingClientRect();
       const parentRect = sticker.parentElement.getBoundingClientRect();
       initialLeft = rect.left - parentRect.left;
       initialTop = rect.top - parentRect.top;
       sticker.style.zIndex = 100;
-    });
+    };
 
-    window.addEventListener('mousemove', (e) => {
+    const moveDrag = (clientX, clientY) => {
       if (!isDragging) return;
-      const dx = e.clientX - startX;
-      const dy = e.clientY - startY;
+      const dx = clientX - startX;
+      const dy = clientY - startY;
       sticker.style.left = `${initialLeft + dx}px`;
       sticker.style.top = `${initialTop + dy}px`;
-    });
+    };
 
-    window.addEventListener('mouseup', () => {
+    const endDrag = () => {
       if (isDragging) {
         isDragging = false;
         sticker.style.zIndex = 10;
       }
+    };
+
+    // Mouse drag
+    sticker.addEventListener('mousedown', (e) => {
+      startDrag(e.clientX, e.clientY);
     });
+
+    window.addEventListener('mousemove', (e) => {
+      moveDrag(e.clientX, e.clientY);
+    });
+
+    window.addEventListener('mouseup', endDrag);
+
+    // Touch drag support for mobile / tablets
+    sticker.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches.length === 1) {
+        startDrag(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (isDragging && e.touches && e.touches.length === 1) {
+        if (e.cancelable) e.preventDefault();
+        moveDrag(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: false });
+
+    window.addEventListener('touchend', endDrag);
+    window.addEventListener('touchcancel', endDrag);
   });
 
   /* ============================================================
@@ -689,30 +722,81 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       closeProjectModal();
       closeCVModal();
+      closeMobileMenu();
     }
   });
 
   /* ============================================================
-     14. MOBILE MENU DRAWER
+     14. MOBILE MENU DRAWER & TOUCH BACKDROP
      ============================================================ */
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mainNav = document.getElementById('mainNav');
+  const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
+
+  function openMobileMenu() {
+    if (!mainNav || !mobileMenuBtn) return;
+    mainNav.classList.add('mobile-active');
+    mobileMenuBtn.classList.add('active');
+    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    if (mobileNavBackdrop) mobileNavBackdrop.classList.add('active');
+    document.body.classList.add('menu-locked');
+  }
+
+  function closeMobileMenu() {
+    if (!mainNav || !mobileMenuBtn) return;
+    mainNav.classList.remove('mobile-active');
+    mobileMenuBtn.classList.remove('active');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    if (mobileNavBackdrop) mobileNavBackdrop.classList.remove('active');
+    document.body.classList.remove('menu-locked');
+  }
+
+  window.closeMobileMenu = closeMobileMenu;
+
   if (mobileMenuBtn && mainNav) {
-    mobileMenuBtn.addEventListener('click', () => {
-      const isOpen = mainNav.classList.toggle('mobile-active');
-      mobileMenuBtn.classList.toggle('active', isOpen);
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = mainNav.classList.contains('mobile-active');
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
     });
 
-    mainNav.querySelectorAll('.nav-link').forEach(link => {
+    if (mobileNavBackdrop) {
+      mobileNavBackdrop.addEventListener('click', closeMobileMenu);
+    }
+
+    mainNav.querySelectorAll('.nav-link, .mobile-drawer-cta, .social-drawer-btn').forEach(link => {
       link.addEventListener('click', () => {
-        mainNav.classList.remove('mobile-active');
-        mobileMenuBtn.classList.remove('active');
+        closeMobileMenu();
       });
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && mainNav.classList.contains('mobile-active')) {
+        closeMobileMenu();
+      }
     });
   }
 
   /* ============================================================
-     15. INISIALISASI PERTAMA KALI
+     15. FLOATING BACK TO TOP BUTTON
+     ============================================================ */
+  const floatingBackToTop = document.getElementById('floatingBackToTop');
+  if (floatingBackToTop) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 350) {
+        floatingBackToTop.classList.add('visible');
+      } else {
+        floatingBackToTop.classList.remove('visible');
+      }
+    }, { passive: true });
+  }
+
+  /* ============================================================
+     16. INISIALISASI PERTAMA KALI
      ============================================================ */
   renderProjects();
   renderExperience('work');
